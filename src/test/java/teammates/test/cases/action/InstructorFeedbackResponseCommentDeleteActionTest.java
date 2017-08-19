@@ -12,11 +12,11 @@ import teammates.storage.api.FeedbackQuestionsDb;
 import teammates.storage.api.FeedbackResponseCommentsDb;
 import teammates.storage.api.FeedbackResponsesDb;
 import teammates.ui.controller.AjaxResult;
-import teammates.ui.controller.FeedbackResponseCommentDeleteAction;
-import teammates.ui.pagedata.FeedbackResponseCommentAjaxPageData;
+import teammates.ui.controller.InstructorFeedbackResponseCommentDeleteAction;
+import teammates.ui.pagedata.InstructorFeedbackResponseCommentAjaxPageData;
 
 /**
- * SUT: {@link FeedbackResponseCommentDeleteAction}.
+ * SUT: {@link InstructorFeedbackResponseCommentDeleteAction}.
  */
 public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActionTest {
 
@@ -77,11 +77,11 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
                 Const.ParamsNames.FEEDBACK_RESULTS_SORTTYPE, "recipient"
         };
 
-        FeedbackResponseCommentDeleteAction action = getAction(submissionParams);
+        InstructorFeedbackResponseCommentDeleteAction action = getAction(submissionParams);
         AjaxResult result = getAjaxResult(action);
 
-        FeedbackResponseCommentAjaxPageData data =
-                (FeedbackResponseCommentAjaxPageData) result.data;
+        InstructorFeedbackResponseCommentAjaxPageData data =
+                (InstructorFeedbackResponseCommentAjaxPageData) result.data;
 
         assertFalse(data.isError);
         assertNull(feedbackResponseCommentsDb.getFeedbackResponseComment(feedbackResponseComment.feedbackResponseId,
@@ -102,7 +102,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
         action = getAction(submissionParams);
         result = getAjaxResult(action);
 
-        data = (FeedbackResponseCommentAjaxPageData) result.data;
+        data = (InstructorFeedbackResponseCommentAjaxPageData) result.data;
 
         assertFalse(data.isError);
         assertNull(feedbackResponseCommentsDb.getFeedbackResponseComment(feedbackResponseComment.feedbackResponseId,
@@ -136,7 +136,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
         action = getAction(submissionParams);
         result = getAjaxResult(action);
 
-        data = (FeedbackResponseCommentAjaxPageData) result.data;
+        data = (InstructorFeedbackResponseCommentAjaxPageData) result.data;
 
         assertFalse(data.isError);
         assertNull(feedbackResponseCommentsDb.getFeedbackResponseComment(feedbackResponseComment.feedbackResponseId,
@@ -145,8 +145,8 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
     }
 
     @Override
-    protected FeedbackResponseCommentDeleteAction getAction(String... params) {
-        return (FeedbackResponseCommentDeleteAction) gaeSimulation.getActionObject(getActionUri(), params);
+    protected InstructorFeedbackResponseCommentDeleteAction getAction(String... params) {
+        return (InstructorFeedbackResponseCommentDeleteAction) gaeSimulation.getActionObject(getActionUri(), params);
     }
 
     @Override

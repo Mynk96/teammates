@@ -8,11 +8,7 @@
 <%@ attribute name="secondIndex" %>
 <%@ attribute name="thirdIndex" %>
 <%@ attribute name="fourthIndex" %>
-<%@ attribute name="isOnFeedbackSubmissionEditPage" %>
-<%@ attribute name="moderatedPersonEmail" %>
-<%@ attribute name="isPreview" %>
-<%@ attribute name="submitTable" %>
-<%@ attribute name="giverRole" %>
+
 <c:choose>
   <c:when test="${not empty fourthIndex}">
     <c:set var="divId" value="${fourthIndex}-${firstIndex}-${secondIndex}-${thirdIndex}" />
@@ -21,14 +17,8 @@
     <c:set var="divId" value="${firstIndex}-${secondIndex}-${thirdIndex}" />
   </c:when>
 </c:choose>
-<c:choose>
-  <c:when test="${giverRole eq 'Instructor'}">
-    <c:set var="submitLink"><%= Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESPONSE_COMMENT_ADD %></c:set>
-  </c:when>
-  <c:otherwise>
-    <c:set var="submitLink">/page/StudentFeedbackResponseCommentAdd</c:set>
-  </c:otherwise>
-</c:choose>
+
+<c:set var="submitLink"><%= Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESPONSE_COMMENT_ADD %></c:set>
 <li class="list-group-item list-group-item-warning"
     id="showResponseCommentAddForm-${divId}" style="display: none;">
   <shared:feedbackResponseCommentForm fsIndex="${firstIndex}"
@@ -40,8 +30,5 @@
       formType="Add"
       textAreaId="responseCommentAddForm"
       submitLink="${submitLink}"
-      buttonText="Add"
-      isOnFeedbackSubmissionEditPage="${isOnFeedbackSubmissionEditPage}"
-      moderatedPersonEmail="${moderatedPersonEmail}"
-      giverRole="${giverRole}"/>
+      buttonText="Add" />
 </li>

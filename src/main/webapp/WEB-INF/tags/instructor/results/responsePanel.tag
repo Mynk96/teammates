@@ -29,6 +29,7 @@
         </button>
       </c:if>
     </div>
+
     <c:set var="firstIndex"  value="${responsePanel.recipientIndex}"/>
     <c:set var="secondIndex" value="${responsePanel.giverIndex}"/>
     <c:set var="thirdIndex"  value="${responsePanel.qnIndex}"/>
@@ -38,13 +39,14 @@
           style="${not empty responsePanel.comments ? 'margin-top:15px;': 'display:none'}">
         <c:forEach items="${responsePanel.comments}" var="responseComment" varStatus="status">
           <shared:feedbackResponseCommentRow frc="${responseComment}" firstIndex="${firstIndex}"
-              secondIndex="${secondIndex}" thirdIndex="${thirdIndex}" fourthIndex="${fourthIndex}"
-              frcIndex="${status.count}" giverRole="Instructor"/>
+              secondIndex="${secondIndex}" thirdIndex="${thirdIndex}"
+              fourthIndex="${fourthIndex}" frcIndex="${status.count}"/>
         </c:forEach>
         <shared:feedbackResponseCommentAdd frc="${responsePanel.frcForAdding}" firstIndex="${firstIndex}"
-            secondIndex="${secondIndex}" thirdIndex="${thirdIndex}" fourthIndex="${fourthIndex}"
-            giverRole="Instructor"/>
+            secondIndex="${secondIndex}" thirdIndex="${thirdIndex}" fourthIndex="${fourthIndex}" />
       </ul>
     </c:if>
+
   </div>
+
 </div>
